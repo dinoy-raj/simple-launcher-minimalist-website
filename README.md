@@ -1,6 +1,6 @@
 # Simple Launcher - Minimalist
 
-[![Get it on Google Play](https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png)](https://play.google.com/store/apps/details?id=com.dino.simple&pcampaignid=web_share)
+<a href="https://play.google.com/store/apps/details?id=com.dino.simple&pcampaignid=web_share"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="200"/></a>
 
 Simple Launcher is a minimalist Android launcher designed to help you reduce screen time and boost focus. With a distraction-free, clutter-free interface, it offers complete customisation without compromising on Minimalist UI & simplicity & performance.
 
