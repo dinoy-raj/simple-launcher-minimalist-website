@@ -1,8 +1,10 @@
 import React from 'react';
+import ParticleBackground from './components/ParticleBackground';
 
 function App() {
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col">
+    <div className="min-h-screen text-white flex flex-col relative">
+      <ParticleBackground />
       {/* Header */}
       <header className="flex justify-between items-center p-6">
         <h1 className="text-white text-lg font-normal">
