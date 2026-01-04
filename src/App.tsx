@@ -1,4 +1,50 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+const words = ['minimalist', 'uncluttered', 'productive'];
+
+const TextRotator = () => {
+  const [index, setIndex] = useState(0);
+  const [isRotating, setIsRotating] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsRotating(true);
+      setTimeout(() => {
+        setIndex((prev) => (prev + 1) % words.length);
+        setIsRotating(false);
+      }, 600); // Match CSS transition duration
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentWord = words[index];
+  const nextWord = words[(index + 1) % words.length];
+
+  return (
+    <div className="inline-block perspective-container align-top">
+      {/* Ghost element to reserve width for the current visible word */}
+      {/* We use isRotating to decide which word dictates width?
+          Actually, let it snap to the new word after rotation.
+          Or use the wider of the two? No, snapping is fine if anchored correctly. */}
+      <span className="opacity-0 pointer-events-none" aria-hidden="true">
+        {isRotating ? nextWord : currentWord}
+      </span>
+
+      <div className="absolute top-0 left-0 w-full h-full cube-wrap">
+        <div
+          className="cube"
+          style={{
+            transform: isRotating ? 'rotateX(90deg)' : 'rotateX(0deg)',
+          }}
+        >
+          <div className="face front">{currentWord}</div>
+          <div className="face bottom">{nextWord}</div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 function App() {
   return (
@@ -24,15 +70,22 @@ function App() {
         <div className="w-24 h-24 bg-white rounded-3xl mb-12 shadow-lg"></div>
 
         {/* Main Heading */}
-        <h2 className="text-4xl md:text-6xl font-bold mb-4 leading-tight max-w-4xl">
-          Best{' '}
-          <span className="inline-block w-[8em] text-center">
-            <span className="animated-word"></span>
-          </span>
-          <br />
-          launcher made for android
-          <br />
-          ever
+        <h2 className="text-4xl md:text-6xl font-bold mb-4 leading-tight max-w-4xl w-full">
+          {/*
+            Split layout for "Best [word]":
+            - Left side (Best): Anchored to the right of the left half.
+            - Right side (Rotator): Anchored to the left of the right half.
+            - Offset: Seam is shifted left by 2.5ch to visually center "Best minimalist".
+          */}
+          <div className="flex w-full justify-center">
+            <div className="w-[calc(50%-2.5ch)] text-right whitespace-pre">Best </div>
+            <div className="w-[calc(50%+2.5ch)] text-left">
+              <TextRotator />
+            </div>
+          </div>
+
+          <div>launcher made for android</div>
+          <div>ever</div>
         </h2>
 
         {/* Description */}
