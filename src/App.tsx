@@ -9,7 +9,7 @@ function App() {
       {/* Header */}
       <header className="flex justify-between items-center p-6">
         <h1 className="text-white text-lg font-normal">
-          Simple Launcher - minimalist
+          Simple Launcher - The Minimalist Launcher
         </h1>
         <a
           href="https://linktr.ee/simple.launcher"
@@ -24,7 +24,11 @@ function App() {
       {/* Main Content */}
       <main className="flex-1 flex flex-col items-center justify-center px-6 text-center">
         {/* App Icon */}
-        <div className="w-24 h-24 bg-white rounded-3xl mb-12 shadow-lg"></div>
+        <img
+          src="/favicon.svg"
+          alt="Simple Launcher - Minimalist Launcher App Icon"
+          className="w-24 h-24 mb-12 shadow-lg rounded-3xl bg-white p-2"
+        />
 
         {/* Main Heading */}
         <h2 className="text-4xl md:text-6xl font-bold mb-4 leading-tight max-w-4xl">
@@ -38,7 +42,7 @@ function App() {
 
         {/* Description */}
         <p className="text-gray-400 text-lg md:text-xl max-w-2xl mb-12 leading-relaxed">
-          Distraction-free, minimal launcher designed to help you reduce screen time and boost focus.
+          Distraction-free, <strong>minimalist launcher</strong> designed to help you reduce screen time and boost focus.
           The best launcher for productivity, offering a minimalist interface without compromising simplicity.
         </p>
 
