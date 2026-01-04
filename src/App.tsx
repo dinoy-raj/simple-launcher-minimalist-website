@@ -1,24 +1,71 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import ParticleBackground from './components/ParticleBackground';
 import TextRotator from './components/TextRotator';
+import { Menu, X } from 'lucide-react';
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const closeMenu = useCallback(() => setIsMenuOpen(false), []);
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isMenuOpen) {
+        closeMenu();
+      }
+    };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isMenuOpen, closeMenu]);
+
   return (
     <div className="min-h-screen text-white flex flex-col relative">
       <ParticleBackground />
       {/* Header */}
-      <header className="flex justify-between items-center p-6 animate-fade-in-up animate-delay-0">
-        <h1 className="text-white text-lg font-normal">
-          Simple Launcher - The Minimalist Launcher
+      <header className="flex justify-between items-center p-4 md:p-6 animate-fade-in-up animate-delay-0 relative">
+        <h1 className="text-white text-xs md:text-lg font-normal">
+          Simple Launcher
         </h1>
+        {/* Desktop navigation */}
         <a
           href="https://linktr.ee/simple.launcher"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-400 text-sm hover:text-white transition-colors"
+          className="hidden md:block text-gray-400 text-sm hover:text-white transition-colors"
         >
           Future Roadmap
         </a>
+        {/* Mobile menu button */}
+        <button
+          id="mobile-menu-button"
+          className="md:hidden text-gray-400 hover:text-white transition-colors p-1"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle menu"
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
+        >
+          {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
+        {/* Mobile menu dropdown */}
+        {isMenuOpen && (
+          <nav
+            id="mobile-menu"
+            role="menu"
+            aria-labelledby="mobile-menu-button"
+            className="md:hidden absolute top-full right-0 mt-2 bg-gray-900 border border-gray-700 rounded-lg shadow-lg z-50 animate-fade-in"
+          >
+            <a
+              href="https://linktr.ee/simple.launcher"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="menuitem"
+              className="block px-4 py-3 text-gray-400 text-sm hover:text-white hover:bg-gray-800 transition-colors rounded-lg"
+              onClick={closeMenu}
+            >
+              Future Roadmap
+            </a>
+          </nav>
+        )}
       </header>
 
       {/* Main Content */}
