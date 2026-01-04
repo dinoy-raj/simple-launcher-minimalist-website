@@ -21,11 +21,8 @@ body {
   vertical-align: baseline;
   height: 1em;
   perspective: 1000px;
-  width: 5.5em; /* Adjusted for typical word length of minimalist/productive */
-  margin-left: 0.3em;
+  width: 5.8em; /* Adjusted for typical word length of minimalist/productive */
   position: relative;
-  /* Offset to visually align the 3D-transformed text baseline with "Best" text */
-  top: -0.15em;
 }
 
 .cube {
@@ -45,7 +42,8 @@ body {
   top: 0;
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Align text left within the block */
+  justify-content: center; /* Align text center within the block */
+  white-space: nowrap;
   backface-visibility: hidden;
 }
 
