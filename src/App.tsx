@@ -74,7 +74,7 @@ function App() {
         <img
           src="/favicon.svg"
           alt="Simple Launcher - Minimalist Launcher App Icon"
-          className="w-24 h-24 mb-12 shadow-lg rounded-3xl bg-white p-2 animate-fade-in-up animate-delay-100 transition-all duration-300 hover:rounded-full"
+          className="w-24 h-24 mb-12 shadow-lg rounded-3xl bg-white p-2 animate-fade-in-up animate-delay-100 transition-[border-radius] duration-500 ease-in-out hover:rounded-full"
         />
 
         {/* Main Heading */}

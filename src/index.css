@@ -22,7 +22,7 @@ body {
   height: 1em;
   perspective: 1000px;
   width: 5.5em; /* Adjusted for typical word length of minimalist/productive */
-  margin-left: 0.3em;
+  margin-left: 0.15em;
   position: relative;
   /* Offset to visually align the 3D-transformed text baseline with "Best" text */
   top: -0.15em;
