@@ -26,7 +26,7 @@ function App() {
         {/* Main Heading */}
         <h2 className="text-4xl md:text-6xl font-bold mb-4 leading-tight max-w-4xl">
           Best{' '}
-          <span className="inline-block w-[8em] text-left">
+          <span className="inline-block w-[8em] text-center">
             <span className="animated-word"></span>
           </span>
           <br />
