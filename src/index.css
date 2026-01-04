@@ -21,7 +21,7 @@ body {
   vertical-align: bottom;
   height: 1.25em; /* Matches leading-tight (1.25) */
   perspective: 1000px;
-  width: 5.5em; /* Adjusted for typical word length of minimalist/productive */
+  width: 6.5em; /* Adjusted for typical word length of minimalist/productive */
   margin-left: 0.3em;
   position: relative;
 }
@@ -31,7 +31,7 @@ body {
   height: 100%;
   position: absolute;
   transform-style: preserve-3d;
-  animation: rotateCube 8s infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  animation: rotateCube 8s infinite ease-in-out;
 }
 
 .cube-face {
@@ -66,34 +66,17 @@ body {
 @keyframes rotateCube {
   0%, 20% {
     transform: rotateX(0deg);
-    opacity: 1;
-  }
-  22.5% {
-    opacity: 0.5;
   }
   25%, 45% {
     transform: rotateX(-90deg);
-    opacity: 1;
-  }
-  47.5% {
-    opacity: 0.5;
   }
   50%, 70% {
     transform: rotateX(-180deg);
-    opacity: 1;
-  }
-  72.5% {
-    opacity: 0.5;
   }
   75%, 95% {
     transform: rotateX(-270deg);
-    opacity: 1;
-  }
-  97.5% {
-    opacity: 0.5;
   }
   100% {
     transform: rotateX(-360deg);
-    opacity: 1;
   }
 }
