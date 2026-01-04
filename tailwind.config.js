@@ -26,7 +26,25 @@ export default {
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
       },
+      transitionDelay: {
+        '0': '0ms',
+        '400': '400ms',
+        '600': '600ms',
+        '800': '800ms',
+        '900': '900ms',
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          'animate-delay': (value) => ({
+            animationDelay: value,
+          }),
+        },
+        { values: theme('transitionDelay') }
+      );
+    },
+  ],
 };
