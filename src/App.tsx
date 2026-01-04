@@ -1,5 +1,6 @@
 import React from 'react';
 import ParticleBackground from './components/ParticleBackground';
+import TextRotator from './components/TextRotator';
 
 function App() {
   return (
@@ -27,10 +28,8 @@ function App() {
 
         {/* Main Heading */}
         <h2 className="text-4xl md:text-6xl font-bold mb-4 leading-tight max-w-4xl">
-          Best{' '}
-          <span className="inline-block">
-            <span className="animated-word"></span>
-          </span>
+          Best
+          <TextRotator />
           <br />
           launcher made for android
           <br />
