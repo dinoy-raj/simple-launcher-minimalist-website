@@ -79,9 +79,10 @@ function App() {
 
         {/* Main Heading */}
         <h2 className="text-4xl md:text-6xl font-bold mb-4 leading-tight max-w-4xl animate-fade-in-up animate-delay-200">
-          Best
-          <TextRotator />
-          <br />
+          <span className="flex items-center justify-center gap-[0.3em]">
+            Best
+            <TextRotator />
+          </span>
           launcher made for android
         </h2>
 
