@@ -54,7 +54,7 @@ body {
   transform: rotateX(0deg) translateZ(0.625em);
 }
 .face-top {
-  transform: rotateX(-90deg) translateZ(0.625em);
+  transform: rotateX(90deg) translateZ(0.625em);
 }
 
 @keyframes rotateCube {
@@ -62,7 +62,7 @@ body {
     transform: rotateX(0deg);
   }
   50%, 95% {
-    transform: rotateX(90deg);
+    transform: rotateX(-90deg);
   }
   100% {
     transform: rotateX(0deg);
