@@ -66,17 +66,34 @@ body {
 @keyframes rotateCube {
   0%, 20% {
     transform: rotateX(0deg);
+    opacity: 1;
+  }
+  22.5% {
+    opacity: 0.5;
   }
   25%, 45% {
     transform: rotateX(-90deg);
+    opacity: 1;
+  }
+  47.5% {
+    opacity: 0.5;
   }
   50%, 70% {
     transform: rotateX(-180deg);
+    opacity: 1;
+  }
+  72.5% {
+    opacity: 0.5;
   }
   75%, 95% {
     transform: rotateX(-270deg);
+    opacity: 1;
+  }
+  97.5% {
+    opacity: 0.5;
   }
   100% {
     transform: rotateX(-360deg);
+    opacity: 1;
   }
 }
