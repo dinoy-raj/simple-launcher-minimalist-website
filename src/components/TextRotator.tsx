@@ -4,10 +4,8 @@ const TextRotator: React.FC = () => {
   return (
     <span className="cube-wrapper">
       <span className="cube">
-        <span className="cube-face face-front">minimalist</span>
-        <span className="cube-face face-top">productive</span>
-        <span className="cube-face face-back">minimalist</span>
-        <span className="cube-face face-bottom">productive</span>
+        <span className="cube-face face-front">Minimalist</span>
+        <span className="cube-face face-top">Productive</span>
       </span>
     </span>
   );
