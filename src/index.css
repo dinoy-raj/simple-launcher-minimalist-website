@@ -17,13 +17,15 @@ body {
 
 /* 3D Cube Rotation */
 .cube-wrapper {
-  display: inline-flex;
-  vertical-align: bottom;
-  height: 1.25em; /* Matches leading-tight (1.25) */
+  display: inline-block;
+  vertical-align: baseline;
+  height: 1em;
   perspective: 1000px;
   width: 5.5em; /* Adjusted for typical word length of minimalist/productive */
   margin-left: 0.3em;
   position: relative;
+  /* Offset to visually align the 3D-transformed text baseline with "Best" text */
+  top: -0.15em;
 }
 
 .cube {
@@ -32,6 +34,7 @@ body {
   position: absolute;
   transform-style: preserve-3d;
   animation: rotateCube 4s infinite ease-in-out;
+  top: 0;
 }
 
 .cube-face {
@@ -44,17 +47,16 @@ body {
   align-items: center;
   justify-content: flex-start; /* Align text left within the block */
   backface-visibility: hidden;
-  /* Ensure the text inherits font styles properly */
 }
 
 /* Faces arranged in a box.
-   Distance from center is half of height (1.25em / 2 = 0.625em)
+   Distance from center is half of height (1em / 2 = 0.5em)
 */
 .face-front {
-  transform: rotateX(0deg) translateZ(0.625em);
+  transform: rotateX(0deg) translateZ(0.5em);
 }
 .face-top {
-  transform: rotateX(90deg) translateZ(0.625em);
+  transform: rotateX(90deg) translateZ(0.5em);
 }
 
 @keyframes rotateCube {
