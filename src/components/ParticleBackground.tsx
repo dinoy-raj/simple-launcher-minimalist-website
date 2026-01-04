@@ -54,7 +54,7 @@ const ParticleBackground: React.FC = () => {
         mouseX += (targetMouseX - mouseX) * 0.05;
         mouseY += (targetMouseY - mouseY) * 0.05;
 
-        time += 0.05;
+        time += 0.02;
 
         // Camera/View parameters
         // The wave is in XZ plane

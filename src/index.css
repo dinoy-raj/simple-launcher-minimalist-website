@@ -15,47 +15,68 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.animated-word {
-  animation: wordSwap 6s infinite;
+/* 3D Cube Rotation */
+.cube-wrapper {
+  display: inline-flex;
+  vertical-align: bottom;
+  height: 1.25em; /* Matches leading-tight (1.25) */
+  perspective: 1000px;
+  width: 5.5em; /* Adjusted for typical word length of minimalist/productive */
+  margin-left: 0.3em;
+  position: relative;
 }
 
-@keyframes wordSwap {
-  0%, 30% { opacity: 1; }
-  33%, 36% { opacity: 0; }
-  37%, 63% { opacity: 1; }
-  66%, 69% { opacity: 0; }
-  70%, 96% { opacity: 1; }
-  99%, 100% { opacity: 0; }
+.cube {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  animation: rotateCube 8s infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
 
-.animated-word::before {
-  content: '';
-  display: inline-block;
-  animation: wordChange 6s infinite;
+.cube-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align text left within the block */
+  backface-visibility: hidden;
+  /* Ensure the text inherits font styles properly */
 }
 
-@keyframes wordChange {
-  0%, 33% {
-    content: 'minimalist';
-    transform: scale(1);
-    opacity: 1;
+/* Faces arranged in a box.
+   Distance from center is half of height (1.25em / 2 = 0.625em)
+*/
+.face-front {
+  transform: rotateX(0deg) translateZ(0.625em);
+}
+.face-top {
+  transform: rotateX(90deg) translateZ(0.625em);
+}
+.face-back {
+  transform: rotateX(180deg) translateZ(0.625em);
+}
+.face-bottom {
+  transform: rotateX(270deg) translateZ(0.625em);
+}
+
+@keyframes rotateCube {
+  0%, 20% {
+    transform: rotateX(0deg);
   }
-  34%, 35% {
-    opacity: 0;
-    transform: scale(0.8);
+  25%, 45% {
+    transform: rotateX(-90deg);
   }
-  36%, 66% {
-    content: 'minimal';
-    transform: scale(1);
-    opacity: 1;
+  50%, 70% {
+    transform: rotateX(-180deg);
   }
-  67%, 68% {
-    opacity: 0;
-    transform: scale(0.8);
+  75%, 95% {
+    transform: rotateX(-270deg);
   }
-  69%, 100% {
-    content: 'productivity';
-    transform: scale(1);
-    opacity: 1;
+  100% {
+    transform: rotateX(-360deg);
   }
 }
