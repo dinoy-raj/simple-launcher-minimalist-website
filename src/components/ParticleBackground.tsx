@@ -47,7 +47,7 @@ const ParticleBackground: React.FC = () => {
 
     const render = () => {
         // Clear background
-        ctx.fillStyle = '#111'; // Dark background
+        ctx.fillStyle = '#000'; // Pure black background
         ctx.fillRect(0, 0, width, height);
 
         // Update mouse smoothing
