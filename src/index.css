@@ -43,7 +43,7 @@ body {
   left: 0;
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Align text start within the block */
+  justify-content: flex-start;
   white-space: nowrap;
   backface-visibility: hidden;
 }
